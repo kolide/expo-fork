@@ -35,6 +35,9 @@ module Expo
 
     # Whether this module should only be added to the debug configuration.
     attr_reader :debugOnly
+
+    # Whether the podspec test_specs should be included when this project is local.
+    attr_reader :includeTestSpecsLocally
     
     def initialize(json)
       @name = json['packageName']
@@ -43,6 +46,7 @@ module Expo
       @flags = json.fetch('flags', {})
       @modules = json.fetch('modules', [])
       @debugOnly = json['debugOnly']
+      @includeTestSpecsLocally = json['includeTestSpecsLocally']
     end
 
     def has_swift_modules_to_link?

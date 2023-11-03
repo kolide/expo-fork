@@ -124,6 +124,7 @@ describe(resolveModuleAsync, () => {
       appDelegateSubscribers: [],
       reactDelegateHandlers: [],
       debugOnly: false,
+      includeTestSpecsLocally: false,
     });
   });
 
@@ -162,6 +163,7 @@ describe(resolveModuleAsync, () => {
       appDelegateSubscribers: [],
       reactDelegateHandlers: [],
       debugOnly: false,
+      includeTestSpecsLocally: false,
     });
   });
 });

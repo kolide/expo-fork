@@ -49,6 +49,7 @@ async function resolveModuleAsync(packageName, revision, options) {
         appDelegateSubscribers: revision.config?.iosAppDelegateSubscribers() ?? [],
         reactDelegateHandlers: revision.config?.iosReactDelegateHandlers() ?? [],
         debugOnly: revision.config?.iosDebugOnly() ?? false,
+        includeTestSpecsLocally: revision.config?.iosIncludeTestSpecsLocally() ?? false,
     };
 }
 exports.resolveModuleAsync = resolveModuleAsync;

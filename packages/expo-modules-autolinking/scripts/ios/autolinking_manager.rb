@@ -59,7 +59,7 @@ module Expo
               :configuration => package.debugOnly ? ['Debug'] : [] # An empty array means all configurations
             }.merge(global_flags, package.flags)
 
-            if tests_only || include_tests
+            if tests_only || include_tests || include_tests_when_local(podspec_dir_path, package)
               podspec = podspec || get_podspec_for_pod(pod)
               test_specs_names = podspec.test_specs.map { |test_spec|
                 test_spec.name.delete_prefix(podspec.name + "/")
@@ -216,6 +216,16 @@ module Expo
           @target_definition.set_use_modular_headers_for_pod(root_spec_name, true)
         end
       }
+    end
+
+    private def include_tests_when_local(path, package)
+      if path.include? 'node_modules'
+        return false
+      end
+      if package.includeTestSpecsLocally
+        return true
+      end
+      return false
     end
 
   end # class AutolinkingManager
