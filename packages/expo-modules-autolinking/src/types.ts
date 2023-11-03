@@ -78,6 +78,7 @@ export interface ModuleDescriptorIos {
   appDelegateSubscribers: string[];
   reactDelegateHandlers: string[];
   debugOnly: boolean;
+  includeTestSpecsLocally: boolean;
 }
 
 export interface ModuleDescriptorDevTools {
@@ -159,6 +160,16 @@ export interface RawExpoModuleConfig {
      * Defaults to false.
      */
     debugOnly?: boolean;
+
+    /**
+     * Whether the podspec test_specs should included when this project is local.
+     * Local is defined as 'outside of node_modules', so this option
+     * has no effect on modules included via package.json, but will affect
+     * modules in custom search directories. (e.g. local modules in ./modules/)
+     *
+     * Defaults to false.
+     */
+    includeTestSpecsLocally?: boolean;
   };
 
   /**

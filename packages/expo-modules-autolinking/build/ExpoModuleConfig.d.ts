@@ -34,6 +34,10 @@ export declare class ExpoModuleConfig {
      */
     iosDebugOnly(): boolean;
     /**
+     * Returns whether the podspec test_specs should be included when this project is local.
+     */
+    iosIncludeTestSpecsLocally(): boolean;
+    /**
      * Returns a list of names of Kotlin native modules classes to put to the generated package provider file.
      */
     androidModules(): string[];
